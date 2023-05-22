@@ -1,3 +1,8 @@
 export default function Item() {
-  return <>This is an item</>;
+  return (
+    <div>
+      <div>Heading</div>
+      <div>This is the content of the item</div>
+    </div>
+  );
 }
