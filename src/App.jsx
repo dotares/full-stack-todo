@@ -1,14 +1,20 @@
 import { useState } from "react";
-import Container from "./components/ItemsContainer";
+import Item from "./components/Item";
 import Input from "./components/Input";
 
 function App() {
-  return (
-    <>
-      <Container />
-      <Input />
-    </>
-  );
+    return (
+        <div className="todoApp">
+            <div className="itemsContainer">
+                <Item />
+                <Item />
+                <Item />
+            </div>
+            <div className="inputContainer">
+                <Input />
+            </div>
+        </div>
+    );
 }
 
 export default App;

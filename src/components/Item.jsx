@@ -1,8 +1,5 @@
+import Input from "./Input";
+
 export default function Item() {
-  return (
-    <div>
-      <div>Heading</div>
-      <div>This is the content of the item</div>
-    </div>
-  );
+    return <div className="todoItem">Content</div>;
 }
