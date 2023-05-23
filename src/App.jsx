@@ -1,23 +1,35 @@
 import { useState } from "react";
 
 function Item() {
-    return <>Todo Items</>;
+    return <div className="todoItem">Todo-item</div>;
 }
 
 function Input() {
-    return <>Input Section</>;
+    return (
+        <div className="inputSection">
+            <input type="text" />
+            <button>Add Item +</button>
+        </div>
+    );
 }
 
 function TodoRow() {
-    return <>Todo Row Section</>;
+    return (
+        <div className="todoRowSection">
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+        </div>
+    );
 }
 
 function App() {
     return (
-        <>
+        <div className="todoApp">
             <TodoRow />
             <Input />
-        </>
+        </div>
     );
 }
 
