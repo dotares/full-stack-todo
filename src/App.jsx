@@ -5,10 +5,16 @@ function Item() {
 }
 
 function Input() {
+    const [message, setMessage] = useState("");
+    const [update, setUpdated] = useState(message);
+
+    const handleChange = (e) => setMessage(e.target.value);
+    const handleClick = () => setUpdated(message);
+
     return (
         <div className="inputSection">
-            <input type="text" />
-            <button>Add Item +</button>
+            <input onChange={handleChange} type="text" />
+            <button onClick={handleClick}>Add Item +</button>
         </div>
     );
 }
