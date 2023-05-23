@@ -1,14 +1,21 @@
 import { useState } from "react";
 
 function Item() {
-    return <div className="todoItem">Todo-item</div>;
+    return (
+        <li id="0" className="todoItem">
+            Todo-item
+        </li>
+    );
 }
 
 function Input() {
+    const [tasks, setTasks] = useState([]);
     const [message, setMessage] = useState("");
 
     const setText = (e) => setMessage(e.target.value);
-    const addTask = () => console.log(`Task ${message} added to the list`);
+    const addTask = () => {
+        setTasks(tasks.concat(message));
+    };
 
     return (
         <div className="inputSection">
@@ -30,8 +37,6 @@ function TodoRow() {
 }
 
 function App() {
-    const [tasks, setTasks] = useState([]);
-
     return (
         <div className="todoApp">
             <TodoRow />
