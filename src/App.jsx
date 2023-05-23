@@ -6,15 +6,14 @@ function Item() {
 
 function Input() {
     const [message, setMessage] = useState("");
-    const [update, setUpdated] = useState(message);
 
-    const handleChange = (e) => setMessage(e.target.value);
-    const handleClick = () => setUpdated(message);
+    const setText = (e) => setMessage(e.target.value);
+    const addTask = () => console.log(`Task ${message} added to the list`);
 
     return (
         <div className="inputSection">
-            <input onChange={handleChange} type="text" />
-            <button onClick={handleClick}>Add Item +</button>
+            <input onChange={setText} type="text" />
+            <button onClick={addTask}>Add Item +</button>
         </div>
     );
 }
@@ -31,6 +30,8 @@ function TodoRow() {
 }
 
 function App() {
+    const [tasks, setTasks] = useState([]);
+
     return (
         <div className="todoApp">
             <TodoRow />
