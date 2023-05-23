@@ -1,46 +1,41 @@
 import { useState } from "react";
 
-function Item() {
-    return (
-        <li id="0" className="todoItem">
-            Todo-item
-        </li>
-    );
+function Item({ value }) {
+    return <li className="todoItem">{value}</li>;
 }
 
-function Input() {
-    const [tasks, setTasks] = useState([]);
-    const [message, setMessage] = useState("");
-
-    const setText = (e) => setMessage(e.target.value);
-    const addTask = () => {
-        setTasks(tasks.concat(message));
-    };
-
+function Input({ handleChange, handleClick }) {
     return (
         <div className="inputSection">
-            <input onChange={setText} type="text" />
-            <button onClick={addTask}>Add Item +</button>
+            <input onChange={handleChange} type="text" />
+            <button onClick={handleClick}>Add Item +</button>
         </div>
     );
 }
 
-function TodoRow() {
+function TodoRow({ tasks }) {
     return (
-        <div className="todoRowSection">
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-        </div>
+        <ul className="todoRowSection">
+            {tasks.map((value) => (
+                <Item value={value} />
+            ))}
+        </ul>
     );
 }
 
 function App() {
+    const [tasks, setTasks] = useState([]);
+    const [message, setMessage] = useState("");
+
+    const handleChange = (e) => setMessage(e.target.value);
+    const handleClick = () => {
+        setTasks(tasks.concat(message));
+    };
+
     return (
         <div className="todoApp">
-            <TodoRow />
-            <Input />
+            <TodoRow tasks={tasks} />
+            <Input handleChange={handleChange} handleClick={handleClick} />
         </div>
     );
 }
