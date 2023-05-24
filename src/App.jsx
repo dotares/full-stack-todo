@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function Item() {
+function Item({ value }) {
     return (
         <div className="itemSection">
             <div className="itemCheckbox">
                 <input type="checkbox" />
             </div>
-            <div className="itemText"></div>
+            <div className="itemText">{value}</div>
         </div>
     );
 }
@@ -26,24 +26,33 @@ function Input({ change, click }) {
     );
 }
 
-function ItemRows({ value }) {
-    return <div className="itemRows">{value}</div>;
+function ItemRows({ tasksList }) {
+    return (
+        <div className="itemRows">
+            {tasksList.map((task, index) => (
+                <Item key={index} value={task.value} />
+            ))}
+        </div>
+    );
 }
 
 function TodoApp() {
     const [message, setMessage] = useState("");
     const [update, setUpdated] = useState(message);
+    const [tasks, setTasks] = useState([]);
 
     const onChange = (event) => {
         setMessage(event.target.value);
     };
+
     const onClick = () => {
         setUpdated(message);
+        setTasks(tasks.concat({ value: `${message}` }));
     };
 
     return (
         <div className="todoAppSection">
-            <ItemRows value={update} />
+            <ItemRows tasksList={tasks} />
             <Input change={onChange} click={onClick} />
         </div>
     );
