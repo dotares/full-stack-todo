@@ -17,7 +17,7 @@ function TodoRow({ tasks }) {
     return (
         <ul className="todoRowSection">
             {tasks.map((value) => (
-                <Item value={value} />
+                <Item value={value.message} />
             ))}
         </ul>
     );
@@ -29,7 +29,7 @@ function App() {
 
     const handleChange = (e) => setMessage(e.target.value);
     const handleClick = () => {
-        setTasks(tasks.concat(message));
+        setTasks(tasks.concat({ id: 1, message: `${message}` }));
     };
 
     return (
