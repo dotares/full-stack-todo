@@ -1,12 +1,41 @@
 import { useState } from "react";
 
-function Item() {}
+function Item() {
+    return (
+        <div className="itemSection">
+            <div className="itemCheckbox">
+                <input type="checkbox" />
+            </div>
+            <div className="itemText"></div>
+        </div>
+    );
+}
 
-function Input() {}
+function Input() {
+    return (
+        <div className="inputSection">
+            <div className="inputText">
+                <input type="text" />
+            </div>
+            <div className="inputButton">
+                <button className="addItemButton">Add Item +</button>
+            </div>
+        </div>
+    );
+}
 
-function ItemRows() {}
+function ItemRows() {
+    return <div className="itemRows"></div>;
+}
 
-function TodoApp() {}
+function TodoApp() {
+    return (
+        <div className="todoAppSection">
+            <ItemRows />
+            <Input />
+        </div>
+    );
+}
 
 export default function App() {
     return <TodoApp />;
