@@ -43,7 +43,7 @@ function TodoRow({ tasks }) {
 }
 
 function App() {
-    var [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([]);
     const [message, setMessage] = useState("");
 
     const handleChange = (e) => setMessage(e.target.value);
