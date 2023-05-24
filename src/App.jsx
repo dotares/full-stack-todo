@@ -30,7 +30,11 @@ function ItemRows({ tasksList }) {
     return (
         <div className="itemRows">
             {tasksList.map((task, index) => (
-                <Item key={index} value={task.value} />
+                <Item
+                    key={index}
+                    value={task.value}
+                    completed={task.completed}
+                />
             ))}
         </div>
     );
@@ -45,7 +49,7 @@ function TodoApp() {
     };
 
     const onClick = () => {
-        setTasks(tasks.concat({ value: `${message}` }));
+        setTasks(tasks.concat({ value: `${message}`, completed: false }));
     };
 
     return (
