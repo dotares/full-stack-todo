@@ -47,7 +47,7 @@ function TodoApp() {
 
     const onClick = () => {
         setUpdated(message);
-        setTasks(tasks.concat({ value: `${message}` }));
+        setTasks(tasks.concat({ value: `${update}` }));
     };
 
     return (
