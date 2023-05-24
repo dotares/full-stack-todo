@@ -1,5 +1,17 @@
 import { useState } from "react";
 
+function Item() {}
+
+function Input() {}
+
+function ItemRows() {}
+
+function TodoApp() {}
+
+export default function App() {
+    return <TodoApp />;
+}
+
 // function Item({ value, completed }) {
 //     const handleComplete = (e) => {
 //         if (e.target.checked) {
