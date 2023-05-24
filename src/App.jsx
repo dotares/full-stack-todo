@@ -16,8 +16,8 @@ function Input({ handleChange, handleClick }) {
 function TodoRow({ tasks }) {
     return (
         <ul className="todoRowSection">
-            {tasks.map((value) => (
-                <Item value={value.message} />
+            {tasks.map((value, index) => (
+                <Item key={value.id + index} value={value.message} />
             ))}
         </ul>
     );
@@ -25,11 +25,11 @@ function TodoRow({ tasks }) {
 
 function App() {
     const [tasks, setTasks] = useState([]);
-    const [message, setMessage] = useState();
+    const [message, setMessage] = useState("");
 
     const handleChange = (e) => setMessage(e.target.value);
     const handleClick = () => {
-        setTasks(tasks.concat({ id: 1, message: `${message}` }));
+        setTasks(tasks.concat({ id: 0, message: `${message}` }));
     };
 
     return (
