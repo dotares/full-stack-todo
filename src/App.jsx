@@ -11,28 +11,40 @@ function Item() {
     );
 }
 
-function Input() {
+function Input({ change, click }) {
     return (
         <div className="inputSection">
             <div className="inputText">
-                <input type="text" />
+                <input onChange={change} type="text" />
             </div>
             <div className="inputButton">
-                <button className="addItemButton">Add Item +</button>
+                <button onClick={click} className="addItemButton">
+                    Add Item +
+                </button>
             </div>
         </div>
     );
 }
 
-function ItemRows() {
-    return <div className="itemRows"></div>;
+function ItemRows({ value }) {
+    return <div className="itemRows">{value}</div>;
 }
 
 function TodoApp() {
+    const [message, setMessage] = useState("");
+    const [update, setUpdated] = useState(message);
+
+    const onChange = (event) => {
+        setMessage(event.target.value);
+    };
+    const onClick = () => {
+        setUpdated(message);
+    };
+
     return (
         <div className="todoAppSection">
-            <ItemRows />
-            <Input />
+            <ItemRows value={update} />
+            <Input change={onChange} click={onClick} />
         </div>
     );
 }
