@@ -38,7 +38,6 @@ function ItemRows({ tasksList }) {
 
 function TodoApp() {
     const [message, setMessage] = useState("");
-    const [update, setUpdated] = useState(message);
     const [tasks, setTasks] = useState([]);
 
     const onChange = (event) => {
@@ -46,8 +45,7 @@ function TodoApp() {
     };
 
     const onClick = () => {
-        setUpdated(message);
-        setTasks(tasks.concat({ value: `${update}` }));
+        setTasks(tasks.concat({ value: `${message}` }));
     };
 
     return (
