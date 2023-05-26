@@ -49,9 +49,7 @@ function TodoApp() {
     };
 
     const handleDelete = (id) => {
-        let removedItemList = tasks.filter((task) => {
-            return task.id != id;
-        });
+        let removedItemList = tasks.filter((task) => task.id != id);
         setTasks(removedItemList);
     };
 
