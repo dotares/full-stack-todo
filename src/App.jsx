@@ -1,5 +1,12 @@
 import { useState } from "react";
 
+/*
+TODO (delete):
+1. Make random keys
+2. Add deletion function
+3. Hook it up with the button
+*/
+
 function Item({ value }) {
     return (
         <div className="itemSection">
