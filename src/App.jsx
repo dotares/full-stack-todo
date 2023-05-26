@@ -3,10 +3,13 @@ import { useState } from "react";
 function Item({ value }) {
     return (
         <div className="itemSection">
-            <div className="itemCheckbox">
+            <div className="itemCheckboxSection">
                 <input type="checkbox" />
             </div>
-            <div className="itemText">{value}</div>
+            <div className="itemTextSection">{value}</div>
+            <div className="deleteButtonSection">
+                <button className="deleteButton">X</button>
+            </div>
         </div>
     );
 }
@@ -29,8 +32,8 @@ function Input({ change, click }) {
 function ItemRows({ tasksList }) {
     return (
         <div className="itemRows">
-            {tasksList.map((task, index) => (
-                <Item key={index} value={task} />
+            {tasksList.map((task) => (
+                <Item key={crypto.randomUUID()} value={task} />
             ))}
         </div>
     );
