@@ -1,21 +1,19 @@
 import { useState } from "react";
 
-/*
-TODO (delete):
-1. Make random keys
-2. Add deletion function
-3. Hook it up with the button
-*/
-
-function Item({ value }) {
+function Item({ value, handleDelete }) {
     return (
-        <div className="itemSection">
+        <div id={value.id} className="itemSection">
             <div className="itemCheckboxSection">
                 <input type="checkbox" />
             </div>
-            <div className="itemTextSection">{value}</div>
+            <div className="itemTextSection">{value.message}</div>
             <div className="deleteButtonSection">
-                <button className="deleteButton">X</button>
+                <button
+                    onClick={() => handleDelete(value.id)}
+                    className="deleteButton"
+                >
+                    X
+                </button>
             </div>
         </div>
     );
@@ -36,16 +34,6 @@ function Input({ change, click }) {
     );
 }
 
-function ItemRows({ tasksList }) {
-    return (
-        <div className="itemRows">
-            {tasksList.map((task) => (
-                <Item key={crypto.randomUUID()} value={task} />
-            ))}
-        </div>
-    );
-}
-
 function TodoApp() {
     const [message, setMessage] = useState("");
     const [tasks, setTasks] = useState([]);
@@ -55,14 +43,33 @@ function TodoApp() {
     };
 
     const onClick = () => {
-        setTasks(tasks.concat(message));
+        setTasks(
+            tasks.concat({ id: crypto.randomUUID(), message: `${message}` })
+        );
+    };
+
+    const handleDelete = (id) => {
+        let removedItemList = tasks.filter((task) => {
+            return task.id != id;
+        });
+        setTasks(removedItemList);
     };
 
     return (
-        <div className="todoAppSection">
-            <ItemRows tasksList={tasks} />
-            <Input change={onChange} click={onClick} />
-        </div>
+        <>
+            <div className="todoAppSection">
+                <div className="itemRows">
+                    {tasks.map((task) => (
+                        <Item
+                            handleDelete={handleDelete}
+                            key={crypto.randomUUID()}
+                            value={task}
+                        />
+                    ))}
+                </div>
+                <Input change={onChange} click={onClick} />
+            </div>
+        </>
     );
 }
 
