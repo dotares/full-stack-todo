@@ -1,0 +1,3 @@
+-   api contains all the back-end code
+-   ui contains all the front-end code
+-   together it makes a **monorepo**
