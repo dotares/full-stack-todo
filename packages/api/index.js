@@ -17,4 +17,20 @@ const connectToDatabase = async () => {
     }
 };
 
-connectToDatabase().catch(console.dir);
+const pipeline = [];
+
+const main = async () => {
+    try {
+        await connectToDatabase();
+        let result = databaseCollection.aggregate(pipeline);
+        for await (doc of result) {
+            console.log(doc);
+        }
+    } catch (err) {
+        console.error(err);
+    } finally {
+        await client.close();
+    }
+};
+
+main();
