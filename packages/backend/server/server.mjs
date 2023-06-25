@@ -8,6 +8,8 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 5050;
 const app = express();
 
+console.log(PORT);
+
 app.use(express.static(path.join(__dirname, "../../client/dist")));
 
 app.listen(PORT, () => {
