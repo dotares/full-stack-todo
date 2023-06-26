@@ -2,7 +2,7 @@ import TodoApp from "./TodoApp";
 
 export default function Item({ value, handleDelete }) {
     return (
-        <div id={value.id} className="itemSection">
+        <div id={value.id} className="itemSection flex space-x-8">
             <div className="itemCheckboxSection">
                 <input type="checkbox" />
             </div>
