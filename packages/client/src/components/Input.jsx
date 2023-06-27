@@ -1,4 +1,9 @@
 import TodoApp from "./TodoApp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fas);
 
 export default function Input({ change, click }) {
     return (
@@ -17,6 +22,7 @@ export default function Input({ change, click }) {
                     className="addItemButton w-full bg-green-400 text-black font-bold rounded-xl p-6"
                 >
                     Add Item
+                    <FontAwesomeIcon className="px-2" icon="fa-solid fa-plus" />
                 </button>
             </div>
         </div>
