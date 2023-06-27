@@ -8,7 +8,7 @@ library.add(fas);
 export default function Input({ change, click }) {
     return (
         <div className="inputSection bg-zinc-800 text-white p-4 flex fixed bottom-0 place-content-center w-full">
-            <div className="inputText px-2 sm:w-2/3 w-full">
+            <div className="inputText pr-2 sm:w-2/3 w-full">
                 <input
                     className="textInput bg-white text-black font-semibold w-full rounded-xl p-6"
                     onChange={change}
