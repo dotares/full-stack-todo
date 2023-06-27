@@ -23,7 +23,7 @@ export default function TodoApp() {
 
     return (
         <>
-            <div className="todoAppSection">
+            <div className="todoAppSection text-white">
                 <div className="itemRows">
                     {tasks.map((task) => (
                         <Item
