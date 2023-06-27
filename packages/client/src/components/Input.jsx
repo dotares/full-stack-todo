@@ -14,7 +14,7 @@ export default function Input({ change, click }) {
             <div className="inputButton w-1/3 text-center">
                 <button
                     onClick={click}
-                    className="addItemButton bg-green-400 text-black font-bold rounded-xl p-6"
+                    className="addItemButton w-full bg-green-400 text-black font-bold rounded-xl p-6"
                 >
                     Add Item
                 </button>
