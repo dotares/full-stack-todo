@@ -12,7 +12,11 @@ export default function TodoApp() {
 
     const onClick = () => {
         setTasks(
-            tasks.concat({ id: crypto.randomUUID(), message: `${message}` })
+            tasks.concat({
+                id: crypto.randomUUID(),
+                message: `${message}`,
+                completed: false,
+            })
         );
     };
 
