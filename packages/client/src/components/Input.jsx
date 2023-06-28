@@ -10,7 +10,7 @@ export default function Input({ change, click }) {
         <div className="inputSection bg-zinc-800 text-white p-4 flex fixed bottom-0 place-content-center w-full">
             <div className="inputText drop-shadow-xl pr-2 w-2/3">
                 <input
-                    className="textInput bg-zinc-700 text-white font-semibold w-full rounded-xl p-6"
+                    className="textInput bg-zinc-600 text-white font-semibold w-full rounded-xl p-6"
                     onChange={change}
                     type="text"
                     placeholder="Walk the dog..."
