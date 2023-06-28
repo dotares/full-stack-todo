@@ -25,6 +25,13 @@ export default function TodoApp() {
         setTasks(removedItemList);
     };
 
+    const handleComplete = (id) => {
+        tasks.map((task) => {
+            if (!task.completed && id === task.id) task.completed = true;
+            else if (task.completed && id === task.id) task.completed = false;
+        });
+    };
+
     return (
         <>
             <div className="todoAppSection text-white">
@@ -32,6 +39,7 @@ export default function TodoApp() {
                     {tasks.map((task) => (
                         <Item
                             handleDelete={handleDelete}
+                            handleComplete={handleComplete}
                             key={crypto.randomUUID()}
                             value={task}
                         />

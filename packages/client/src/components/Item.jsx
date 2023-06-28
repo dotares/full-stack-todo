@@ -1,17 +1,21 @@
+import TodoApp from "./TodoApp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 library.add(fas);
 
-export default function Item({ value, handleDelete }) {
+export default function Item({ value, handleDelete, handleComplete }) {
     return (
         <div
             id={value.id}
             className="itemSection bg-zinc-700 rounded-xl drop-shadow-xl w-full flex p-6 my-6"
         >
             <div className="itemCheckboxSection">
-                <input type="checkbox" />
+                <input
+                    type="checkbox"
+                    onClick={() => handleComplete(value.id)}
+                />
             </div>
             <div className="itemTextSection px-4 w-full">{value.message}</div>
             <div className="deleteButtonSection text-center">
