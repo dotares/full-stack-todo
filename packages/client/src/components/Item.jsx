@@ -1,4 +1,9 @@
 import TodoApp from "./TodoApp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fas);
 
 export default function Item({ value, handleDelete }) {
     return (
@@ -12,7 +17,7 @@ export default function Item({ value, handleDelete }) {
                     onClick={() => handleDelete(value.id)}
                     className="deleteButton"
                 >
-                    X
+                    <FontAwesomeIcon icon="fa-solid fa-xmark" />
                 </button>
             </div>
         </div>
