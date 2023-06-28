@@ -24,7 +24,7 @@ export default function TodoApp() {
     return (
         <>
             <div className="todoAppSection text-white">
-                <div className="itemRows">
+                <div className="itemRows p-6">
                     {tasks.map((task) => (
                         <Item
                             handleDelete={handleDelete}

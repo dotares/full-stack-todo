@@ -7,11 +7,14 @@ library.add(fas);
 
 export default function Item({ value, handleDelete }) {
     return (
-        <div id={value.id} className="itemSection w-full flex p-6 space-x-8">
+        <div
+            id={value.id}
+            className="itemSection bg-zinc-700 rounded-xl drop-shadow-xl w-full flex p-6 my-6"
+        >
             <div className="itemCheckboxSection">
                 <input type="checkbox" />
             </div>
-            <div className="itemTextSection w-full">{value.message}</div>
+            <div className="itemTextSection px-4 w-full">{value.message}</div>
             <div className="deleteButtonSection text-center">
                 <button
                     onClick={() => handleDelete(value.id)}
