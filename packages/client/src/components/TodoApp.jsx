@@ -25,13 +25,6 @@ export default function TodoApp() {
         setTasks(removedItemList);
     };
 
-    // const handleComplete = (id) => {
-    //     tasks.map((task) => {
-    //         if (!task.completed && id === task.id) task.completed = true;
-    //         else if (task.completed && id === task.id) task.completed = false;
-    //     });
-    // };
-
     const handleComplete = (id) => {
         setTasks((tasks) => {
             tasks.map((task) => {
