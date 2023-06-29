@@ -19,7 +19,7 @@ export default function Input({ change, click }) {
             <div className="inputButton w-1/3 text-center">
                 <button
                     onClick={click}
-                    className="addItemButton w-full drop-shadow-xl bg-green-400 text-gray-800 font-black rounded-xl py-6"
+                    className="addItemButton w-full drop-shadow-xl bg-green-600 text-white font-black rounded-xl py-6"
                 >
                     Add
                     <FontAwesomeIcon className="px-2" icon="fa-solid fa-plus" />
