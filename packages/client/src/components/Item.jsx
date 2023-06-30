@@ -22,7 +22,7 @@ export default function Item({
                 <input
                     type="checkbox"
                     checked={handleCheck}
-                    onClick={() => {
+                    onChange={() => {
                         handleComplete(value.id);
                     }}
                 />
