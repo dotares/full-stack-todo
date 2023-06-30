@@ -26,7 +26,7 @@ export default function TodoApp() {
     };
 
     const handleComplete = (id) => {
-        tasks.forEach((task) => {
+        tasks.map((task) => {
             if (id === task.id) task.completed = !task.completed;
         });
     };

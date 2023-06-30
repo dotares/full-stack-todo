@@ -7,6 +7,12 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 library.add(fas);
 
 export default function Item({ value, handleDelete, handleComplete }) {
+    const [isChecked, setIsChecked] = useState(false);
+
+    const checkHandler = () => {
+        setIsChecked(value.completed);
+    };
+
     return (
         <div
             id={value.id}
@@ -15,8 +21,10 @@ export default function Item({ value, handleDelete, handleComplete }) {
             <div className="itemCheckboxSection">
                 <input
                     type="checkbox"
+                    checked={isChecked}
                     onChange={() => {
                         handleComplete(value.id);
+                        checkHandler();
                     }}
                 />
             </div>
