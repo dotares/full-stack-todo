@@ -5,6 +5,7 @@ import Item from "./Item";
 export default function TodoApp() {
     const [message, setMessage] = useState("");
     const [tasks, setTasks] = useState([]);
+    const [isChecked, setIsChecked] = useState(false);
 
     const onChange = (event) => {
         setMessage(event.target.value);
@@ -25,9 +26,16 @@ export default function TodoApp() {
         setTasks(removedItemList);
     };
 
+    const handleChecks = () => {
+        setIsChecked(!isChecked);
+    };
+
     const handleComplete = (id) => {
         tasks.map((task) => {
-            if (id === task.id) task.completed = !task.completed;
+            if (id === task.id) {
+                task.completed = !task.completed;
+                handleChecks();
+            }
         });
     };
 
@@ -39,6 +47,7 @@ export default function TodoApp() {
                         <Item
                             handleDelete={handleDelete}
                             handleComplete={handleComplete}
+                            handleCheck={task.completed}
                             key={crypto.randomUUID()}
                             value={task}
                         />
