@@ -4,29 +4,14 @@ const { MongoClient } = require("mongodb");
 const uri = process.env.ATLAS_URI;
 const client = new MongoClient(uri);
 
-const databaseName = "todoList";
-const collectionName = "todoItems";
-const databaseCollection = client.db(databaseName).collection(collectionName);
+let connection;
 
-const connectToDatabase = async () => {
-    try {
-        await client.connect();
-        console.log(`You're connected to your database ${databaseName}`);
-    } catch (err) {
-        console.error(`Error: ${err}`);
-    }
-};
+try {
+    connection = await client.connect();
+} catch (e) {
+    console.error(e);
+}
 
-const pipeline = [];
+let db = connection.db("todoList").collection("todoItems");
 
-const main = async () => {
-    try {
-        await connectToDatabase();
-    } catch (err) {
-        console.error(err);
-    } finally {
-        await client.close();
-    }
-};
-
-main();
+export default db;
