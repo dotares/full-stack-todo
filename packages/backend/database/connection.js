@@ -6,11 +6,16 @@ const client = new MongoClient(uri);
 
 let connection;
 
-try {
-    connection = await client.connect();
-} catch (e) {
-    console.error(e);
-}
+const run = async () => {
+    try {
+        connection = await client.connect();
+        console.log("Connected to todoList database");
+    } catch (e) {
+        console.error(e);
+    }
+};
+
+run();
 
 let db = connection.db("todoList").collection("todoItems");
 
