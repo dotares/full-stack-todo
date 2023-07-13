@@ -20,6 +20,7 @@ export default function TodoApp() {
                 completed: false,
             })
         );
+        console.log(db)
     };
 
     const handleDelete = (id) => {
