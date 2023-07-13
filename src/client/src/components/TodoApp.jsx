@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "./Input";
 import Item from "./Item";
+import db from "../../../backend/database/connection.js"
 
 export default function TodoApp() {
     const [message, setMessage] = useState("");
